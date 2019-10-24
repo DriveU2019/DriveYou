@@ -23,13 +23,13 @@
 import React from 'react';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import Dashboard from '../../components/dashboard/Dashboard';
+import NotFound from '../../../components/layout/NotFound';
 
 configure({ adapter: new Adapter() });
 
-describe('Dashboard main Component', () => {
+describe('NotFound main Component', () => {
   it('should render correctly', () => {
-    const component = shallow(<Dashboard />);
+    const component = shallow(<NotFound />);
 
     expect(component).toMatchSnapshot();
   });

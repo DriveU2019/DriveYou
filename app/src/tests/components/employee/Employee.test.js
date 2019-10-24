@@ -23,13 +23,13 @@
 import React from 'react';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import TheoryLesson from '../../components/theoryLesson/TheoryLesson';
+import Employee from '../../../components/employee/Employee';
 
 configure({ adapter: new Adapter() });
 
-describe('TheoryLesson main Component', () => {
+describe('Employee main Component', () => {
   it('should render correctly', () => {
-    const component = shallow(<TheoryLesson />);
+    const component = shallow(<Employee />);
 
     expect(component).toMatchSnapshot();
   });

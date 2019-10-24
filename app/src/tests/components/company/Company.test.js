@@ -23,13 +23,13 @@
 import React from 'react';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import App from '../../App';
+import Company from '../../../components/company/Company';
 
 configure({ adapter: new Adapter() });
 
-describe('App main Component', () => {
+describe('Company main Component', () => {
   it('should render correctly', () => {
-    const component = shallow(<App />);
+    const component = shallow(<Company />);
 
     expect(component).toMatchSnapshot();
   });

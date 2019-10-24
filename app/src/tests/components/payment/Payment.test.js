@@ -23,13 +23,13 @@
 import React from 'react';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import Accounting from '../../components/accounting/Accounting';
+import Payment from '../../../components/payment/Payment';
 
 configure({ adapter: new Adapter() });
 
-describe('Accounting main Component', () => {
+describe('Payment main Component', () => {
   it('should render correctly', () => {
-    const component = shallow(<Accounting />);
+    const component = shallow(<Payment />);
 
     expect(component).toMatchSnapshot();
   });

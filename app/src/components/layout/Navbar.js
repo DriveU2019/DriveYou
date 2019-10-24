@@ -43,6 +43,7 @@ import PersonIcon from '@material-ui/icons/Person';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import DriveEtaIcon from '@material-ui/icons/DriveEta';
 import BusinessIcon from '@material-ui/icons/Business';
+import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
 
 const drawerWidth = 240;
 
@@ -201,6 +202,13 @@ const Navbar = ({ children }) => {
               {/* {index % 2 === 0 ? <ContactsIcon /> : <ListAltIcon />} */}
             </ListItemIcon>
             <ListItemText primary='Drive Lesson' />
+          </ListItem>
+          <ListItem button component={Link} to='/payment'>
+            <ListItemIcon>
+              <AccountBalanceWalletIcon />
+              {/* {index % 2 === 0 ? <ContactsIcon /> : <ListAltIcon />} */}
+            </ListItemIcon>
+            <ListItemText primary='Payment' />
           </ListItem>
         </List>
         <Divider />

@@ -21,7 +21,7 @@
  */
 
 import React, { Fragment } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 //
 import Navbar from './components/layout/Navbar';
 import Customer from './components/customer/Customer';
@@ -29,6 +29,9 @@ import TheoryLesson from './components/theoryLesson/TheoryLesson';
 import DriveLesson from './components/driveLesson/DriveLesson';
 import Company from './components/company/Company';
 import Employee from './components/employee/Employee';
+import Payment from './components/payment/Payment';
+//
+import NotFound from './components/layout/NotFound';
 
 const App = () => {
   return (
@@ -41,6 +44,12 @@ const App = () => {
           <Route exact path='/drivelesson' component={DriveLesson} />
           <Route exact path='/company' component={Company} />
           <Route exact path='/employee' component={Employee} />
+          <Route exact path='/payment' component={Payment} />
+          {/*  */}
+          <Route path='/notFound' component={NotFound} />
+          {/* <Redirect from='/' exact to='/' /> */}
+          {/* <Redirect to='/notFound' /> */}
+          {/*  */}
         </Navbar>
       </Switch>
     </Fragment>

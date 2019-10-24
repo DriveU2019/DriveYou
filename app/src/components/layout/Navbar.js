@@ -44,6 +44,8 @@ import AssignmentIcon from '@material-ui/icons/Assignment';
 import DriveEtaIcon from '@material-ui/icons/DriveEta';
 import BusinessIcon from '@material-ui/icons/Business';
 import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
+import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
+import DashboardIcon from '@material-ui/icons/Dashboard';
 
 const drawerWidth = 240;
 
@@ -182,7 +184,7 @@ const Navbar = ({ children }) => {
         </div>
         <Divider />
         <List>
-          <ListItem button component={Link} to='/'>
+          <ListItem button component={Link} to='/customer'>
             <ListItemIcon>
               <ContactsIcon />
               {/* {index % 2 === 0 ? <ContactsIcon /> : <ListAltIcon />} */}
@@ -226,6 +228,20 @@ const Navbar = ({ children }) => {
               {/* {index % 2 === 0 ? <PersonIcon /> : <DashboardIcon />} */}
             </ListItemIcon>
             <ListItemText primary='Employee' />
+          </ListItem>
+          <ListItem button component={Link} to='/accounting'>
+            <ListItemIcon>
+              <AccountBalanceIcon />
+              {/* {index % 2 === 0 ? <PersonIcon /> : <DashboardIcon />} */}
+            </ListItemIcon>
+            <ListItemText primary='Accounting' />
+          </ListItem>
+          <ListItem button component={Link} to='/dashboard'>
+            <ListItemIcon>
+              <DashboardIcon />
+              {/* {index % 2 === 0 ? <PersonIcon /> : <DashboardIcon />} */}
+            </ListItemIcon>
+            <ListItemText primary='Dashboard' />
           </ListItem>
         </List>
       </Drawer>

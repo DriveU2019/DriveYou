@@ -30,6 +30,8 @@ import DriveLesson from './components/driveLesson/DriveLesson';
 import Company from './components/company/Company';
 import Employee from './components/employee/Employee';
 import Payment from './components/payment/Payment';
+import Accounting from './components/accounting/Accounting';
+import Dashboard from './components/dashboard/Dashboard';
 //
 import NotFound from './components/layout/NotFound';
 
@@ -39,12 +41,14 @@ const App = () => {
       <Switch>
         {/* <Route exact path='/login' component={Login} /> */}
         <Navbar>
-          <Route exact path='/' component={Customer} />
-          <Route exact path='/theorylesson' component={TheoryLesson} />
-          <Route exact path='/drivelesson' component={DriveLesson} />
+          <Route exact path='/accounting' component={Accounting} />
           <Route exact path='/company' component={Company} />
+          <Route exact path='/customer' component={Customer} />
+          <Route exact path='/dashboard' component={Dashboard} />
+          <Route exact path='/drivelesson' component={DriveLesson} />
           <Route exact path='/employee' component={Employee} />
           <Route exact path='/payment' component={Payment} />
+          <Route exact path='/theorylesson' component={TheoryLesson} />
           {/*  */}
           <Route path='/notFound' component={NotFound} />
           {/* <Redirect from='/' exact to='/' /> */}

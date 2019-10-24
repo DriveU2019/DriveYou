@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spinner main Component should render correctly 1`] = `
+<div>
+  <WithStyles(ForwardRef(CircularProgress))
+    className="makeStyles-progress-1"
+    size={60}
+    thickness={2}
+  />
+</div>
+`;

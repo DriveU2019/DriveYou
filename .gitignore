@@ -52,5 +52,5 @@ yarn-error.log*
 /api/config/*
 /app/src/config/*
 /app/src/service/config.json
-*.snap
+# *.snap
 docker-compose.yml

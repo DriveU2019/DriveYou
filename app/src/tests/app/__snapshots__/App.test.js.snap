@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App main Component should render correctly 1`] = `
+<Fragment>
+  <Switch>
+    <Navbar>
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/accounting"
+      />
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/company"
+      />
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/customer"
+      />
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/dashboard"
+      />
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/drivelesson"
+      />
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/employee"
+      />
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/payment"
+      />
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/theorylesson"
+      />
+      <Route
+        component={[Function]}
+        path="/notFound"
+      />
+    </Navbar>
+  </Switch>
+</Fragment>
+`;

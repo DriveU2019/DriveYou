@@ -39,6 +39,14 @@ const personalsSchema = new mongoose.Schema({
   birthDate: {
     type: Date,
     required: true
+  },
+  visualAid: {
+    type: Boolean,
+    required: true
+  },
+  isActive: {
+    type: Boolean,
+    required: true
   }
 });
 

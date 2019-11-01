@@ -33,14 +33,6 @@ const customerSchema = new mongoose.Schema({
   phone: phoneSchema,
   adress: adressSchema,
   personals: presonalsSchema,
-  isActive: {
-    type: Boolean,
-    required: true
-  },
-  visualAid: {
-    type: Boolean,
-    required: true
-  },
   // legals: { legalDocumentSchema },
   // TODO: link practical
   // TODO: link Theory
@@ -51,7 +43,7 @@ const customerSchema = new mongoose.Schema({
   // TODO: link Driving Teacher
   note: {
     type: String,
-    minlength: 2,
+    minlength: 1,
     maxlength: 4000,
     required: false
   }
@@ -122,10 +114,14 @@ function validateCustomer(customer) {
         .min(4)
         .max(10)
         .required(),
-      birthDate: Joi.boolean()
+      birthDate: Joi.boolean(),
+      visualAid: Joi.boolean(),
+      isActive: Joi.boolean()
     }),
-    isActive: Joi.boolean(),
-    visualAid: Joi.boolean()
+
+    note: Joi.string()
+      .min(1)
+      .max(4000)
   };
 
   return Joi.validate(customer, schema);

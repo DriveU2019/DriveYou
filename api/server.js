@@ -20,17 +20,15 @@
  * --------------------------------------------------------------------------------
  */
 
-const express = require('express');
-const app = express();
+const config = require('config');
+const winston = require('winston');
 
-// change request limit
-app.use(express.json({ limit: '1mb' }));
+const app = require('./app');
 
-require('./startup/logging')();
-require('./startup/cors')(app);
-require('./startup/routes')(app);
-require('./startup/db')();
-require('./startup/config')();
-// require('./startup/validation')();
+const port = process.env.PORT || config.get('port');
 
-module.exports = app;
+const server = app.listen(port, () =>
+  winston.info(`Listening on port ${port}...`)
+);
+
+module.exports = server;

@@ -52,33 +52,43 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
+  // console.log(req.body);
   const { name, phone, adress, personals, note } = req.body;
   const customerFields = {};
-  if (name.lastName) customerFields.name.lastName = name.lastName;
-  if (name.firstName) customerFields.name.firstName = name.firstName;
-  if (name.middleName) customerFields.name.middleName = name.middleName;
-  if (phone.phoneNo) customerFields.phone.phoneNo = phone.phoneNo;
-  if (phone.mobileNo) customerFields.phone.mobileNo = phone.phoneNo;
-  if (phone.faxNo) customerFields.phone.faxNo = phone.phoneNo;
-  if (adress.street) customerFields.adress.street = adress.street;
-  if (adress.no) customerFields.adress.no = adress.no;
-  if (adress.postZip) customerFields.adress.postZip = adress.postZip;
-  if (adress.city) customerFields.adress.city = adress.city;
-  if (adress.state) customerFields.adress.state = adress.state;
-  if (adress.country) customerFields.adress.country = adress.country;
-  if (personals.emailAdress)
-    customerFields.personals.emailAdress = personals.emailAdress;
-  if (personals.gender) customerFields.personals.gender = personals.gender;
-  if (personals.birthDate)
-    customerFields.personals.birthDate = personals.birthDate;
-  if (personals.visualAid)
-    customerFields.personals.visualAid = personals.visualAid;
-  if (personals.isActive)
-    customerFields.personals.isActive = personals.isActive;
+  // if (name.lastName) customerFields.name.lastName = name.lastName;
+  // if (name.firstName) customerFields.name.firstName = name.firstName;
+  // if (name.middleName) customerFields.name.middleName = name.middleName;
+  // if (phone.phoneNo) customerFields.phone.phoneNo = phone.phoneNo;
+  // if (phone.mobileNo) customerFields.phone.mobileNo = phone.phoneNo;
+  // if (phone.faxNo) customerFields.phone.faxNo = phone.phoneNo;
+  // if (adress.street) customerFields.adress.street = adress.street;
+  // if (adress.no) customerFields.adress.no = adress.no;
+  // if (adress.postZip) customerFields.adress.postZip = adress.postZip;
+  // if (adress.city) customerFields.adress.city = adress.city;
+  // if (adress.state) customerFields.adress.state = adress.state;
+  // if (adress.country) customerFields.adress.country = adress.country;
+  // if (personals.emailAdress)
+  //   customerFields.personals.emailAdress = personals.emailAdress;
+  // if (personals.gender) customerFields.personals.gender = personals.gender;
+  // if (personals.birthDate)
+  //   customerFields.personals.birthDate = personals.birthDate;
+  // if (personals.visualAid)
+  //   customerFields.personals.visualAid = personals.visualAid;
+  // if (personals.isActive)
+  //   customerFields.personals.isActive = personals.isActive;
+  // if (note) customerFields.note = note;
+  if (name) customerFields.name = name;
+  if (phone) customerFields.phone = phone;
+  if (adress) customerFields.adress = adress;
+  if (personals) customerFields.personals = personals;
   if (note) customerFields.note = note;
+  console.log(customerFields);
+  // console.log(req.body);
 
   try {
-    const newCustomer = new Customer(customerFields);
+    // const newCustomer = new Customer(customerFields);
+    console.log('req.body');
+    const newCustomer = new Customer(req.body);
     if (!newCustomer) {
       return res.status(404).send('Not Found!');
     }

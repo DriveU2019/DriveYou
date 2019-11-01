@@ -23,10 +23,10 @@
 const mongoose = require('mongoose');
 const Joi = required('joi');
 
-const { nameSchema } = require('./subSchema/nameSchema');
-const { phoneSchema } = require('./subSchema/phoneSchema');
-const { adressSchema } = require('./subSchema/adressSchema');
-const { presonalsSchema } = require('./subSchema/personalsSchema');
+const { nameSchema } = require('./subSchema/generels/nameSchema');
+const { phoneSchema } = require('./subSchema/generels/phoneSchema');
+const { adressSchema } = require('./subSchema/generels/adressSchema');
+const { presonalsSchema } = require('./subSchema/generels/personalsSchema');
 
 const customerSchema = new mongoose.Schema({
   name: nameSchema,

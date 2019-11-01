@@ -21,7 +21,6 @@
  */
 
 const mongoose = require('mongoose');
-const Joi = required('joi');
 
 const personalsSchema = new mongoose.Schema({
   emailAdress: {

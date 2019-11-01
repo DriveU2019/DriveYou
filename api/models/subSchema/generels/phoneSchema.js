@@ -21,7 +21,6 @@
  */
 
 const mongoose = require('mongoose');
-const Joi = require('joi');
 
 const phoneSchema = new mongoose.Schema({
   phoneNo: {

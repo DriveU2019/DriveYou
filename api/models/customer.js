@@ -21,18 +21,18 @@
  */
 
 const mongoose = require('mongoose');
-const Joi = required('joi');
+const Joi = require('joi');
 
 const { nameSchema } = require('./subSchema/generels/nameSchema');
 const { phoneSchema } = require('./subSchema/generels/phoneSchema');
 const { adressSchema } = require('./subSchema/generels/adressSchema');
-const { presonalsSchema } = require('./subSchema/generels/personalsSchema');
+const { personalsSchema } = require('./subSchema/generels/personalsSchema');
 
 const customerSchema = new mongoose.Schema({
   name: nameSchema,
   phone: phoneSchema,
   adress: adressSchema,
-  personals: presonalsSchema,
+  personals: personalsSchema,
   // legals: { legalDocumentSchema },
   // TODO: link practical
   // TODO: link Theory

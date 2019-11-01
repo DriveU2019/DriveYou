@@ -20,46 +20,22 @@
  * --------------------------------------------------------------------------------
  */
 
+const winston = require('winston');
 const mongoose = require('mongoose');
+const config = require('config');
 
-const nameSchema = new mongoose.Schema({
-  lastName: {
-    type: String,
-    minlength: 2,
-    maxlength: 50,
-    required: true
-  },
-  firstName: {
-    type: String,
-    minlength: 2,
-    maxlength: 50,
-    required: true
-  },
-  middleName: {
-    type: String,
-    minlength: 2,
-    maxlength: 50,
-    required: false
+module.exports = async () => {
+  const db = process.env.DATABASE || config.get('db');
+  try {
+    await mongoose.connect(db, {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+      useUnifiedTopology: true
+    });
+    winston.info('Connected to db...');
+  } catch (err) {
+    winston.error(err.message);
+    process.exit(1);
   }
-});
-
-function validateName(name) {
-  const schema = {
-    lastName: Joi.string()
-      .min(2)
-      .max(50)
-      .required(),
-    firstName: Joi.string()
-      .min(2)
-      .max(50)
-      .required(),
-    middleName: Joi.string()
-      .min(2)
-      .max(50)
-  };
-
-  return Joi.validate(name, schema);
-}
-
-exports.nameSchema = nameSchema;
-exports.validateName = validateName;
+};

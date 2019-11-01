@@ -21,9 +21,9 @@
  */
 
 const express = require('express');
-const Customer = require('../models/customer');
+const { Customer } = require('../models/customer');
 
-const router = express.router();
+const router = express.Router();
 
 router.get('/', async (req, res) => {
   try {

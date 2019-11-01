@@ -20,46 +20,9 @@
  * --------------------------------------------------------------------------------
  */
 
-const mongoose = require('mongoose');
+const express = require('express');
 
-const nameSchema = new mongoose.Schema({
-  lastName: {
-    type: String,
-    minlength: 2,
-    maxlength: 50,
-    required: true
-  },
-  firstName: {
-    type: String,
-    minlength: 2,
-    maxlength: 50,
-    required: true
-  },
-  middleName: {
-    type: String,
-    minlength: 2,
-    maxlength: 50,
-    required: false
-  }
-});
-
-function validateName(name) {
-  const schema = {
-    lastName: Joi.string()
-      .min(2)
-      .max(50)
-      .required(),
-    firstName: Joi.string()
-      .min(2)
-      .max(50)
-      .required(),
-    middleName: Joi.string()
-      .min(2)
-      .max(50)
-  };
-
-  return Joi.validate(name, schema);
-}
-
-exports.nameSchema = nameSchema;
-exports.validateName = validateName;
+module.exports = function(app) {
+  app.use(express.json());
+  app.use('/api/v1/customers', require('../routes/customers'));
+};

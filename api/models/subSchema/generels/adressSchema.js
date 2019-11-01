@@ -21,7 +21,6 @@
  */
 
 const mongoose = require('mongoose');
-const Joi = required('joi');
 
 const adressSchema = new mongoose.Schema({
   street: {

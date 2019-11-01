@@ -4,6 +4,9 @@
   "description": "drivingshool Mgmt System",
   "main": "app.js",
   "scripts": {
+    "start": "node server.js",
+    "test:ci": "jest",
+    "dev": "nodemon server.js",
     "test": "jest --watchAll --verbose"
   },
   "repository": {
@@ -30,5 +33,8 @@
     "jest": "^24.9.0",
     "nodemon": "^1.19.4",
     "supertest": "^4.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }

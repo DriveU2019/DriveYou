@@ -43,23 +43,4 @@ const nameSchema = new mongoose.Schema({
   }
 });
 
-function validateName(name) {
-  const schema = {
-    lastName: Joi.string()
-      .min(2)
-      .max(50)
-      .required(),
-    firstName: Joi.string()
-      .min(2)
-      .max(50)
-      .required(),
-    middleName: Joi.string()
-      .min(2)
-      .max(50)
-  };
-
-  return Joi.validate(name, schema);
-}
-
 exports.nameSchema = nameSchema;
-exports.validateName = validateName;

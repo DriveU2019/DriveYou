@@ -33,6 +33,7 @@ import Payment from './components/payment/Payment';
 import Accounting from './components/accounting/Accounting';
 import Dashboard from './components/dashboard/Dashboard';
 //
+import Login from './components/auth/Login';
 import NotFound from './components/layout/NotFound';
 
 const App = () => {
@@ -41,6 +42,8 @@ const App = () => {
       <Switch>
         {/* <Route exact path='/login' component={Login} /> */}
         <Navbar>
+          <Route exact path='/login' component={Login} />
+          {/*  */}
           <Route exact path='/accounting' component={Accounting} />
           <Route exact path='/company' component={Company} />
           <Route exact path='/customer' component={Customer} />

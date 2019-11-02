@@ -29,14 +29,6 @@ import Grid from '@material-ui/core/Grid';
 import LoginForm from './login/LoginForm';
 import LoginCard from './login/LoginCard';
 
-const useStyles = makeStyles(theme => ({
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary
-  }
-}));
-
 const Login = () => {
   const classes = useStyles();
 
@@ -52,7 +44,7 @@ const Login = () => {
             spacing={2}
           >
             <Grid item xs={12} md={6}>
-              <LoginForm />
+              <LoginForm classes={classes} />
             </Grid>
             <Grid item xs={12} md={6}>
               <LoginCard />
@@ -63,5 +55,36 @@ const Login = () => {
     </>
   );
 };
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap'
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary
+  },
+  margin: {
+    margin: theme.spacing(1)
+  },
+  withoutLabel: {
+    marginTop: theme.spacing(3)
+  },
+  textField: {
+    width: 360
+  },
+  button: {
+    margin: theme.spacing(1)
+  },
+  gridColor: {
+    backgroundColor: theme.palette.primary.main,
+    color: '#ffffff'
+  },
+  typeText: {
+    marginTop: theme.spacing(2)
+  }
+}));
 
 export default Login;

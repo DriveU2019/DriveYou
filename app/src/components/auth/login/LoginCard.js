@@ -21,27 +21,11 @@
  */
 
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1
-  },
-  card: {
-    minWidth: 275
-  },
-  bgColor: {
-    backgroundColor: '#e6oooo'
-  }
-}));
-
 const LoginCard = () => {
-  const classes = useStyles();
-
   return (
     <>
       <Grid container spacing={3}>

@@ -52,78 +52,95 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  // console.log(req.body);
   const { name, phone, adress, personals, note } = req.body;
+
+  const nameFields = {};
+  // name.forEach(i => nameFields.push(i));
+  if (name && name.firstName) nameFields.firstName = name.firstName;
+  if (name && name.lastName) nameFields.lastName = name.lastName;
+  if (name && name.middleName) nameFields.middleName = name.middleName;
+
+  const phoneFields = {};
+  if (phone && phone.phoneNo) phoneFields.phoneNo = phone.phoneNo;
+  if (phone && phone.mobileNo) phoneFields.mobileNo = phone.phoneNo;
+  if (phone && phone.faxNo) phoneFields.faxNo = phone.phoneNo;
+
+  const adressFields = {};
+  if (adress && adress.street) customerFields.street = adress.street;
+  if (adress && adress.no) customerFields.no = adress.no;
+  if (adress && adress.postZip) customerFields.postZip = adress.postZip;
+  if (adress && adress.city) customerFields.city = adress.city;
+  if (adress && adress.state) customerFields.state = adress.state;
+  if (adress && adress.country) customerFields.country = adress.country;
+
+  const personalFields = {};
+  if (personals && personals.emailAdress)
+    personalFields.emailAdress = personals.emailAdress;
+  if (personals && personals.gender) personalFields.gender = personals.gender;
+  if (personals && personals.birthDate)
+    personalFields.birthDate = personals.birthDate;
+  if (personals && personals.visualAid)
+    personalFields.visualAid = personals.visualAid;
+  if (personals && personals.isActive)
+    personalFields.isActive = personals.isActive;
+
   const customerFields = {};
-  // if (name.lastName) customerFields.name.lastName = name.lastName;
-  // if (name.firstName) customerFields.name.firstName = name.firstName;
-  // if (name.middleName) customerFields.name.middleName = name.middleName;
-  // if (phone.phoneNo) customerFields.phone.phoneNo = phone.phoneNo;
-  // if (phone.mobileNo) customerFields.phone.mobileNo = phone.phoneNo;
-  // if (phone.faxNo) customerFields.phone.faxNo = phone.phoneNo;
-  // if (adress.street) customerFields.adress.street = adress.street;
-  // if (adress.no) customerFields.adress.no = adress.no;
-  // if (adress.postZip) customerFields.adress.postZip = adress.postZip;
-  // if (adress.city) customerFields.adress.city = adress.city;
-  // if (adress.state) customerFields.adress.state = adress.state;
-  // if (adress.country) customerFields.adress.country = adress.country;
-  // if (personals.emailAdress)
-  //   customerFields.personals.emailAdress = personals.emailAdress;
-  // if (personals.gender) customerFields.personals.gender = personals.gender;
-  // if (personals.birthDate)
-  //   customerFields.personals.birthDate = personals.birthDate;
-  // if (personals.visualAid)
-  //   customerFields.personals.visualAid = personals.visualAid;
-  // if (personals.isActive)
-  //   customerFields.personals.isActive = personals.isActive;
-  // if (note) customerFields.note = note;
-  if (name) customerFields.name = name;
-  if (phone) customerFields.phone = phone;
-  if (adress) customerFields.adress = adress;
-  if (personals) customerFields.personals = personals;
+  if (name) customerFields.name = nameFields;
+  if (phone) customerFields.phone = phoneFields;
+  if (adress) customerFields.adress = adressFields;
+  if (personals) customerFields.personals = personalFields;
   if (note) customerFields.note = note;
-  console.log(customerFields);
-  // console.log(req.body);
 
   try {
-    // const newCustomer = new Customer(customerFields);
-    console.log('req.body');
-    const newCustomer = new Customer(req.body);
+    const newCustomer = new Customer(customerFields);
     if (!newCustomer) {
       return res.status(404).send('Not Found!');
     }
     const customer = await newCustomer.save();
     res.send(customer);
   } catch (err) {
-    console.log(err.message);
-    res.status(500).send('Server Error!');
+    // console.log(err.message);
+    res.status(500).send({ err: err.message });
   }
 });
 
 router.put('/:id', async (req, res) => {
   const { name, phone, adress, personals, note } = req.body;
+  const nameFields = {};
+  // name.forEach(i => nameFields.push(i));
+  if (name && name.firstName) nameFields.firstName = name.firstName;
+  if (name && name.lastName) nameFields.lastName = name.lastName;
+  if (name && name.middleName) nameFields.middleName = name.middleName;
+
+  const phoneFields = {};
+  if (phone && phone.phoneNo) phoneFields.phoneNo = phone.phoneNo;
+  if (phone && phone.mobileNo) phoneFields.mobileNo = phone.phoneNo;
+  if (phone && phone.faxNo) phoneFields.faxNo = phone.phoneNo;
+
+  const adressFields = {};
+  if (adress && adress.street) customerFields.street = adress.street;
+  if (adress && adress.no) customerFields.no = adress.no;
+  if (adress && adress.postZip) customerFields.postZip = adress.postZip;
+  if (adress && adress.city) customerFields.city = adress.city;
+  if (adress && adress.state) customerFields.state = adress.state;
+  if (adress && adress.country) customerFields.country = adress.country;
+
+  const personalFields = {};
+  if (personals && personals.emailAdress)
+    personalFields.emailAdress = personals.emailAdress;
+  if (personals && personals.gender) personalFields.gender = personals.gender;
+  if (personals && personals.birthDate)
+    personalFields.birthDate = personals.birthDate;
+  if (personals && personals.visualAid)
+    personalFields.visualAid = personals.visualAid;
+  if (personals && personals.isActive)
+    personalFields.isActive = personals.isActive;
+
   const customerFields = {};
-  if (name.lastName) customerFields.name.lastName = name.lastName;
-  if (name.firstName) customerFields.name.firstName = name.firstName;
-  if (name.middleName) customerFields.name.middleName = name.middleName;
-  if (phone.phoneNo) customerFields.phone.phoneNo = phone.phoneNo;
-  if (phone.mobileNo) customerFields.phone.mobileNo = phone.phoneNo;
-  if (phone.faxNo) customerFields.phone.faxNo = phone.phoneNo;
-  if (adress.street) customerFields.adress.street = adress.street;
-  if (adress.no) customerFields.adress.no = adress.no;
-  if (adress.postZip) customerFields.adress.postZip = adress.postZip;
-  if (adress.city) customerFields.adress.city = adress.city;
-  if (adress.state) customerFields.adress.state = adress.state;
-  if (adress.country) customerFields.adress.country = adress.country;
-  if (personals.emailAdress)
-    customerFields.personals.emailAdress = personals.emailAdress;
-  if (personals.gender) customerFields.personals.gender = personals.gender;
-  if (personals.birthDate)
-    customerFields.personals.birthDate = personals.birthDate;
-  if (personals.visualAid)
-    customerFields.personals.visualAid = personals.visualAid;
-  if (personals.isActive)
-    customerFields.personals.isActive = personals.isActive;
+  if (name) customerFields.name = nameFields;
+  if (phone) customerFields.phone = phoneFields;
+  if (adress) customerFields.adress = adressFields;
+  if (personals) customerFields.personals = personalFields;
   if (note) customerFields.note = note;
   try {
     let updateCustomer = await Customer.findById(req.params.id);
@@ -138,7 +155,7 @@ router.put('/:id', async (req, res) => {
     res.send(updateCustomer);
   } catch (err) {
     console.log(err.message);
-    res.status(500).send('Server Error!');
+    res.status(500).send('VOM BE! ', err.message);
   }
 });
 

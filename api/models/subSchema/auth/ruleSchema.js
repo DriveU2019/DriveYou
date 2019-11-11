@@ -22,32 +22,10 @@
 
 const mongoose = require('mongoose');
 
-const { nameSchema } = require('./subSchema/generels/nameSchema');
-const { phoneSchema } = require('./subSchema/generels/phoneSchema');
-const { adressSchema } = require('./subSchema/generels/adressSchema');
-const { personalsSchema } = require('./subSchema/generels/personalsSchema');
-
-const customerSchema = new mongoose.Schema({
-  name: nameSchema,
-  phone: phoneSchema,
-  adress: adressSchema,
-  personals: personalsSchema,
-  // legals: { legalDocumentSchema },
-  // TODO: link practical
-  // TODO: link Theory
-  // TODO: link FS Classes
-  // TODO: link EXAM Theory
-  // TODO: link EXAM practical
-  // TODO: link pricelist
-  // TODO: link Driving Teacher
-  note: {
-    type: String,
-    minlength: 2,
-    maxlength: 4,
-    required: false
+const ruleSchema = new mongoose.Schema({
+  name: {
+    type: String
   }
 });
 
-const Customer = mongoose.model('Customer', customerSchema);
-
-exports.Customer = Customer;
+exports.ruleSchema = ruleSchema;

@@ -21,9 +21,39 @@
  */
 
 import React from 'react';
+import Spinner from '../layout/Spinner';
+import { useGets } from '../../service/useFetch';
 
 const Customer = () => {
-  return <div>Customer</div>;
+  const { data, loading } = useGets('http://localhost:3900/api/v1/customers');
+
+  // console.log('CUSTOMER: ', data);
+  return (
+    <>
+      <div>Customer</div>
+      {loading ? (
+        <Spinner />
+      ) : (
+        data.map(d => (
+          <div key={d._id}>
+            <div key={d.adress._id}>
+              <p>{d.adress.street}</p>
+              <p>{d.adress.no}</p>
+              <p>{d.adress.postZip}</p>
+              <p>{d.adress.city}</p>
+              <p>{d.adress.state}</p>
+              <p>{d.adress.country}</p>
+            </div>
+            <div key={d.name._id}>
+              <p>{d.name.firstName}</p>
+              <p>{d.name.lastName}</p>
+              <p>{d.name.middleName}</p>
+            </div>
+          </div>
+        ))
+      )}
+    </>
+  );
 };
 
 export default Customer;

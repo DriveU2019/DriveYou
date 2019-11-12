@@ -20,12 +20,12 @@
  * --------------------------------------------------------------------------------
  */
 
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const { nameSchema } = require('./subSchema/generels/nameSchema');
-const { phoneSchema } = require('./subSchema/generels/phoneSchema');
-const { adressSchema } = require('./subSchema/generels/adressSchema');
-const { personalsSchema } = require('./subSchema/generels/personalsSchema');
+const { nameSchema } = require("./subSchema/generels/nameSchema");
+const { phoneSchema } = require("./subSchema/generels/phoneSchema");
+const { adressSchema } = require("./subSchema/generels/adressSchema");
+const { personalsSchema } = require("./subSchema/generels/personalsSchema");
 
 const customerSchema = new mongoose.Schema({
   name: nameSchema,
@@ -42,12 +42,12 @@ const customerSchema = new mongoose.Schema({
   // TODO: link Driving Teacher
   note: {
     type: String,
-    minlength: 2,
-    maxlength: 4,
+    minlength: 1,
+    maxlength: 4000,
     required: false
   }
 });
 
-const Customer = mongoose.model('Customer', customerSchema);
+const Customer = mongoose.model("Customer", customerSchema);
 
 exports.Customer = Customer;

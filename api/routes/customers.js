@@ -29,11 +29,11 @@ router.get("/", async (req, res) => {
   try {
     const customers = await Customer.find();
     if (!customers) {
-      return res.status(404).send("Not Found!");
+      return res.status(404).send("Not found!");
     }
     res.send(customers);
   } catch (err) {
-    res.status(500).send("Server Error!");
+    res.status(500).send("server error!");
     console.log(err.message);
   }
 });
@@ -42,11 +42,11 @@ router.get("/:id", async (req, res) => {
   try {
     const customer = await Customer.findById();
     if (!customer) {
-      return res.status(404).send("Not Found!");
+      return res.status(404).send("Not found!");
     }
     res.send(customer);
   } catch (err) {
-    res.status(500).send("Server Error!");
+    res.status(500).send("server error!");
     console.log(err.message);
   }
 });
@@ -70,7 +70,7 @@ router.post("/", async (req, res) => {
   try {
     const newCustomer = new Customer(customerFields);
     if (!newCustomer) {
-      return res.status(404).send("Not Found!");
+      return res.status(404).send("Not found!");
     }
     const customer = await newCustomer.save();
     res.send(customer);
@@ -99,7 +99,7 @@ router.put("/:id", async (req, res) => {
   try {
     let updateCustomer = await Customer.findById(req.params.id);
     if (!updateCustomer) {
-      return res.status(404).send("Not Found!");
+      return res.status(404).send("Not found!");
     }
     updateCustomer = await Customer.findByIdAndUpdate(
       req.params.id,
@@ -109,7 +109,7 @@ router.put("/:id", async (req, res) => {
     res.send(updateCustomer);
   } catch (err) {
     console.log(err.message);
-    res.status(500).send("VOM BE! ", err.message);
+    res.status(500).send("server error!");
   }
 });
 
@@ -123,7 +123,7 @@ router.delete("/:id", async (req, res) => {
     res.send("Deleted: " + deleteCustomer);
   } catch (err) {
     console.log(err.message);
-    res.status(500).send("Server Error!");
+    res.status(500).send("server error!");
   }
 });
 

@@ -75,7 +75,7 @@ router.post("/", async (req, res) => {
     const customer = await newCustomer.save();
     res.send(customer);
   } catch (err) {
-    // console.log(err.message);
+    console.log(err.message);
     res.status(500).send({ err: err.message });
   }
 });

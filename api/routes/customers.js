@@ -33,8 +33,8 @@ router.get("/", async (req, res) => {
     }
     res.send(customers);
   } catch (err) {
-    res.status(500).send("server error!");
     console.log(err.message);
+    res.status(500).send("server error!");
   }
 });
 
@@ -46,8 +46,8 @@ router.get("/:id", async (req, res) => {
     }
     res.send(customer);
   } catch (err) {
-    res.status(500).send("server error!");
     console.log(err.message);
+    res.status(500).send("server error!");
   }
 });
 

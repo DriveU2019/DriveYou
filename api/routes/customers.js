@@ -29,7 +29,7 @@ router.get("/", async (req, res) => {
   try {
     const customers = await Customer.find();
     if (!customers) {
-      return res.status(404).send("Not found!");
+      return res.status(404).send("not found!");
     }
     res.send(customers);
   } catch (err) {
@@ -42,7 +42,7 @@ router.get("/:id", async (req, res) => {
   try {
     const customer = await Customer.findById();
     if (!customer) {
-      return res.status(404).send("Not found!");
+      return res.status(404).send("not found!");
     }
     res.send(customer);
   } catch (err) {
@@ -70,7 +70,7 @@ router.post("/", async (req, res) => {
   try {
     const newCustomer = new Customer(customerFields);
     if (!newCustomer) {
-      return res.status(404).send("Not found!");
+      return res.status(404).send("not found!");
     }
     const customer = await newCustomer.save();
     res.send(customer);
@@ -96,10 +96,11 @@ router.put("/:id", async (req, res) => {
   if (adress) customerFields.adress = adressFields;
   if (personals) customerFields.personals = personalFields;
   if (note) customerFields.note = note;
+
   try {
     let updateCustomer = await Customer.findById(req.params.id);
     if (!updateCustomer) {
-      return res.status(404).send("Not found!");
+      return res.status(404).send("not found!");
     }
     updateCustomer = await Customer.findByIdAndUpdate(
       req.params.id,

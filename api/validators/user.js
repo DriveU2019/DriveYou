@@ -20,32 +20,31 @@
  * --------------------------------------------------------------------------------
  */
 
-const mongoose = require('mongoose');
+const Joi = require('joi');
 
-const { nameSchema } = require('./subSchema/generels/nameSchema');
-const { ruleSchema } = require('./subSchema/auth/ruleSchema');
+function validateUser(user) {
+  const schema = {
+    email: Joi.string()
+      .email()
+      .required(),
+    name: Joi.object().keys({
+      lastName: Joi.string()
+        .min(2)
+        .max(50)
+        .required(),
+      firstName: Joi.string()
+        .min(2)
+        .max(50)
+        .required(),
+      middleName: Joi.string()
+        .min(2)
+        .max(50)
+    }),
+    password: Joi.string().required(),
+    rules: Joi.array().items(Joi.object().keys({ name: Joi.string() }))
+  };
 
-const userSchema = new mongoose.Schema({
-  email: {
-    type: String,
-    minlength: 2,
-    maxlength: 50,
-    required: true
-  },
-  name: nameSchema,
-  password: {
-    type: String,
-    required: true
-  },
-  isAdmin: {
-    type: Boolean
-  },
-  isRoot: {
-    type: Boolean
-  },
-  rules: [ruleSchema]
-});
+  return Joi.validate(user, schema);
+}
 
-const User = mongoose.model('User', userSchema, 'user');
-
-exports.User = User;
+exports.validate = validateUser;

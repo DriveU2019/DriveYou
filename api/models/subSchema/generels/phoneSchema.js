@@ -20,7 +20,7 @@
  * --------------------------------------------------------------------------------
  */
 
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const phoneSchema = new mongoose.Schema({
   phoneNo: {
@@ -36,6 +36,12 @@ const phoneSchema = new mongoose.Schema({
     required: false
   },
   faxNo: {
+    type: String,
+    minlength: 2,
+    maxlength: 50,
+    required: false
+  },
+  emailAdress: {
     type: String,
     minlength: 2,
     maxlength: 50,

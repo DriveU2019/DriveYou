@@ -50,5 +50,8 @@
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ]
+  },
+  "prettier": {
+    "prettier.singleQuote": true
   }
 }

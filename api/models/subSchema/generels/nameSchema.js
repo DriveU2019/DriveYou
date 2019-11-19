@@ -23,6 +23,12 @@
 const mongoose = require('mongoose');
 
 const nameSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    minlength: 2,
+    maxlength: 50,
+    required: true
+  },
   lastName: {
     type: String,
     minlength: 2,

@@ -20,21 +20,84 @@
  * --------------------------------------------------------------------------------
  */
 
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-const { nameSchema } = require("./subSchema/generels/nameSchema");
-const { phoneSchema } = require("./subSchema/generels/phoneSchema");
-const { adressSchema } = require("./subSchema/generels/adressSchema");
-const { personalsSchema } = require("./subSchema/generels/personalsSchema");
+const { nameSchema } = require('./subSchema/generels/nameSchema');
+const { phoneSchema } = require('./subSchema/generels/phoneSchema');
+const { adressSchema } = require('./subSchema/generels/adressSchema');
+const { personalSchema } = require('./subSchema/generels/personalSchema');
+const { legalDocSchema } = require('./subSchema/customer/legalDoc');
 
 const customerSchema = new mongoose.Schema({
-  name: nameSchema,
-  phone: phoneSchema,
-  adress: adressSchema,
-  personals: personalsSchema,
-  // legals: { legalDocumentSchema },
+  nameSchema,
+  phoneSchema,
+  adressSchema,
+  personalSchema,
+  store: {
+    name: {
+      type: String,
+      minlength: 1,
+      maxlength: 25,
+      required: false,
+      unique: false
+    },
+    storeId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'store',
+      required: false
+    }
+  },
+  legalDocSchema,
+  theoryLesson: [
+    {
+      store: {
+        type: String,
+        minlength: 1,
+        maxlength: 25,
+        required: false,
+        unique: false
+      },
+      licenseClass: {
+        type: String,
+        minlength: 1,
+        maxlength: 25,
+        required: false,
+        unique: false
+      },
+      lesson: {
+        type: String,
+        minlength: 1,
+        maxlength: 25,
+        required: false,
+        unique: false
+      },
+      dueDate: {
+        type: Date,
+        required: true,
+        unique: false
+      },
+      startTime: {
+        type: String
+      },
+      endTimer: {
+        type: String
+      },
+      employee: {
+        nameSchema,
+        employeeId: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'employee',
+          required: false
+        }
+      },
+      theoLessonId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'theory_lesson',
+        required: false
+      }
+    }
+  ],
   // TODO: link practical
-  // TODO: link Theory
   // TODO: link FS Classes
   // TODO: link EXAM Theory
   // TODO: link EXAM practical
@@ -48,6 +111,7 @@ const customerSchema = new mongoose.Schema({
   }
 });
 
-const Customer = mongoose.model("Customer", customerSchema);
+const Customer = mongoose.model('Customer', customerSchema, 'customer');
 
+// exports.customerSchema = customerSchema;
 exports.Customer = Customer;

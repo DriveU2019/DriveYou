@@ -13,15 +13,17 @@
  * limitations under the License.
  */
 
-/*
- * --------------------------------------------------------------------------------
- * Description:
- *        TODO:
- * --------------------------------------------------------------------------------
+/** @module models/theoLesson */
+/**
+ * @file
+ * @since
+ * @summary
+ * @description
+ * @todo
  */
 
-const mongoose = require("mongoose");
-const { nameSchema } = require("./subSchema/generels/nameSchema");
+const mongoose = require('mongoose');
+const { nameSchema } = require('./subSchema/generels/nameSchema');
 
 const theoLessonSchema = new mongoose.Schema({
   store: {
@@ -60,7 +62,7 @@ const theoLessonSchema = new mongoose.Schema({
     nameSchema,
     employeeId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "employee",
+      ref: 'employee',
       required: false
     }
   },
@@ -69,17 +71,23 @@ const theoLessonSchema = new mongoose.Schema({
       nameSchema,
       customerId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "cumstomer",
+        ref: 'cumstomer',
         required: false
       }
     }
-  ]
+  ],
+  note: {
+    type: String,
+    minlength: 1,
+    maxlength: 4000,
+    required: false
+  }
 });
 
 const TheoyLesson = mongoose.model(
-  "TheoryLesson",
+  'TheoryLesson',
   theoLessonSchema,
-  "theory_lesson"
+  'theory_lesson'
 );
 
 exports.TheoyLesson = TheoyLesson;

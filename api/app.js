@@ -13,24 +13,61 @@
  * limitations under the License.
  */
 
-/*
- * --------------------------------------------------------------------------------
- * Description:
- *        TODO:
- * --------------------------------------------------------------------------------
+/** @module app */
+/**
+ * @file Initialize Services
+ * @since 1.0.0
+ * @summary Initialize Services
+ * @description Main File to Initialize Global Services
+ * @todo
  */
 
+/** @requires module:express */
 const express = require('express');
 const app = express();
 
-// change request limit
+/**
+ * Request Limit
+ * @typedef {Object} Limit
+ * @property {string} limit - 1 MB
+ */
 app.use(express.json({ limit: '1mb' }));
 
+/**
+ * Initialize Logging Services.
+ * @param {Logging Service} logging - Initialize Logging
+ * value of {@link logging}.
+ */
 require('./startup/logging')();
+
+/**
+ * Initialize CORS Service
+ * @param {Cors Service} cors - Initialize CORS
+ * value of {@link cors}.
+ */
 require('./startup/cors')(app);
+
+/**
+ * Initialize Routes Service
+ * @param {Routes Service} routes - Initialize Routes
+ * value of {@link routes}.
+ */
 require('./startup/routes')(app);
+
+/**
+ * Initialize Database Service
+ * @param {DB Service} Database - Initialize Database
+ * value of {@link db}.
+ */
 require('./startup/db')();
+
+/**
+ * Initialize Config Service
+ * @param {Config Service} Config - Initialize Config
+ * value of {@link Config}.
+ */
 require('./startup/config')();
+
 // require('./startup/validation')();
 
 module.exports = app;

@@ -1,6 +1,8 @@
-/*
- * Copyright 2019 [dage] @DriveYou
+/**
+ * @copyright 2019
+ * @author [dage] @DriveYou
  *
+ * @license Apache-2.0
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,11 +15,13 @@
  * limitations under the License.
  */
 
-/*
- * --------------------------------------------------------------------------------
- * Description:
- *        TODO:
- * --------------------------------------------------------------------------------
+/** @module Server */
+/**
+ * @file Initialize the Application
+ * @version 1.0.0
+ * @summary Drive You
+ * @description DrivingSchool Management Application
+ * @todo
  */
 
 const config = require('config');

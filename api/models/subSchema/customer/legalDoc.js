@@ -13,14 +13,16 @@
  * limitations under the License.
  */
 
-/*
- * --------------------------------------------------------------------------------
- * Description:
- *        TODO:
- * --------------------------------------------------------------------------------
+/** @module schema/legalDoc */
+/**
+ * @file
+ * @since
+ * @summary
+ * @description
+ * @todo
  */
 
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const legalDocSchema = new mongoose.Schema({
   received: {

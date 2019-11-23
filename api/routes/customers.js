@@ -13,45 +13,60 @@
  * limitations under the License.
  */
 
-/*
- * --------------------------------------------------------------------------------
- * Description:
- *        TODO:
- * --------------------------------------------------------------------------------
+/** @module routes/customer */
+/**
+ * @file
+ * @since
+ * @summary
+ * @description
+ * @todo
  */
 
-const express = require("express");
-const { Customer } = require("../models/customer");
+const express = require('express');
+/**
+ * Linked Model.
+ * @see module:models/customer
+ */
+const { Customer } = require('../models/customer');
 
 const router = express.Router();
 
-router.get("/", async (req, res) => {
+/**
+ * @requires module:express
+ */
+router.get('/', async (req, res) => {
   try {
     const customers = await Customer.find();
     if (!customers) {
-      return res.status(404).send("not found!");
+      return res.status(404).send('not found!');
     }
     res.send(customers);
   } catch (err) {
     console.log(err.message);
-    res.status(500).send("server error!");
+    res.status(500).send('server error!');
   }
 });
 
-router.get("/:id", async (req, res) => {
+/**
+ * @requires module:express
+ */
+router.get('/:id', async (req, res) => {
   try {
     const customer = await Customer.findById(req.params.id);
     if (!customer) {
-      return res.status(404).send("not found!");
+      return res.status(404).send('not found!');
     }
     res.send(customer);
   } catch (err) {
     console.log(err.message);
-    res.status(500).send("server error!");
+    res.status(500).send('server error!');
   }
 });
 
-router.post("/", async (req, res) => {
+/**
+ * @requires module:express
+ */
+router.post('/', async (req, res) => {
   const { name, phone, adress, personals, note } = req.body;
   let nameFields = {};
   for (key of Object.keys(name)) nameFields[key] = name[key];
@@ -70,7 +85,7 @@ router.post("/", async (req, res) => {
   try {
     const newCustomer = new Customer(customerFields);
     if (!newCustomer) {
-      return res.status(404).send("not found!");
+      return res.status(404).send('not found!');
     }
     const customer = await newCustomer.save();
     res.send(customer);
@@ -80,7 +95,10 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
+/**
+ * @requires module:express
+ */
+router.put('/:id', async (req, res) => {
   const { name, phone, adress, personals, note } = req.body;
   let nameFields = {};
   for (key of Object.keys(name)) nameFields[key] = name[key];
@@ -100,7 +118,7 @@ router.put("/:id", async (req, res) => {
   try {
     let updateCustomer = await Customer.findById(req.params.id);
     if (!updateCustomer) {
-      return res.status(404).send("not found!");
+      return res.status(404).send('not found!');
     }
     updateCustomer = await Customer.findByIdAndUpdate(
       req.params.id,
@@ -110,21 +128,24 @@ router.put("/:id", async (req, res) => {
     res.send(updateCustomer);
   } catch (err) {
     console.log(err.message);
-    res.status(500).send("server error!");
+    res.status(500).send('server error!');
   }
 });
 
-router.delete("/:id", async (req, res) => {
+/**
+ * @requires module:express
+ */
+router.delete('/:id', async (req, res) => {
   try {
     let deleteCustomer = await Customer.findById(req.params.id);
     if (!deleteCustomer) {
-      return res.status(404).send("Not Found!");
+      return res.status(404).send('Not Found!');
     }
     await Customer.findByIdAndRemove(req.params.id);
-    res.send("Deleted: " + deleteCustomer);
+    res.send('Deleted: ' + deleteCustomer);
   } catch (err) {
     console.log(err.message);
-    res.status(500).send("server error!");
+    res.status(500).send('server error!');
   }
 });
 

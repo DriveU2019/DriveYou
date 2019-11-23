@@ -13,11 +13,13 @@
  * limitations under the License.
  */
 
-/*
- * --------------------------------------------------------------------------------
- * Description:
- *        TODO:
- * --------------------------------------------------------------------------------
+/** @module routes/auth */
+/**
+ * @file Auth Route
+ * @since 1.0.0
+ * @summary Auth Service
+ * @description
+ * @todo
  */
 
 const express = require('express');
@@ -27,8 +29,23 @@ const config = require('config');
 const auth = require('../middleware/auth');
 const { User } = require('../models/user');
 
+/**
+ * Express router to mount user related functions on.
+ * @type {object}
+ * @const
+ * @namespace authRouter
+ */
 const router = express.Router();
 
+/**
+ * Route serving login form.
+ * @name get/api/v1/login
+ * @function
+ * @memberof module:routes/users~authRouter
+ * @inner
+ * @param {string} path - Express path
+ * @param {callback} middleware - Express middleware.
+ */
 router.get('/', auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select('-password');

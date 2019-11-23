@@ -13,11 +13,13 @@
  * limitations under the License.
  */
 
-/*
- * --------------------------------------------------------------------------------
- * Description:
- *        TODO:
- * --------------------------------------------------------------------------------
+/** @module models/customer */
+/**
+ * @file
+ * @since
+ * @summary
+ * @description
+ * @todo
  */
 
 const mongoose = require('mongoose');

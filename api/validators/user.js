@@ -13,11 +13,13 @@
  * limitations under the License.
  */
 
-/*
- * --------------------------------------------------------------------------------
- * Description:
- *        TODO:
- * --------------------------------------------------------------------------------
+/** @module validators/user */
+/**
+ * @file
+ * @since
+ * @summary
+ * @description
+ * @todo
  */
 
 const Joi = require('joi');

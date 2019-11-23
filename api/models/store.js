@@ -13,11 +13,13 @@
  * limitations under the License.
  */
 
-/*
- * --------------------------------------------------------------------------------
- * Description:
- *        TODO:
- * --------------------------------------------------------------------------------
+/** @module models/store */
+/**
+ * @file
+ * @since
+ * @summary
+ * @description
+ * @todo
  */
 
 const mongoose = require('mongoose');
@@ -50,6 +52,12 @@ const storeSchema = new mongoose.Schema({
       ref: 'employee',
       required: false // have to be true
     }
+  },
+  note: {
+    type: String,
+    minlength: 1,
+    maxlength: 4000,
+    required: false
   }
 });
 

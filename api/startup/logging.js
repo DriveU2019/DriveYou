@@ -13,11 +13,13 @@
  * limitations under the License.
  */
 
-/*
- * --------------------------------------------------------------------------------
- * Description:
- *        TODO:
- * --------------------------------------------------------------------------------
+/** @module logging */
+/**
+ * @file
+ * @since
+ * @summary
+ * @description
+ * @todo
  */
 
 const winston = require('winston');

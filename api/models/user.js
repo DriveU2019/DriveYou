@@ -13,11 +13,13 @@
  * limitations under the License.
  */
 
-/*
- * --------------------------------------------------------------------------------
- * Description:
- *        TODO:
- * --------------------------------------------------------------------------------
+/** @module models/user */
+/**
+ * @file
+ * @since
+ * @summary
+ * @description
+ * @todo
  */
 
 const mongoose = require('mongoose');
@@ -43,7 +45,13 @@ const userSchema = new mongoose.Schema({
   isRoot: {
     type: Boolean
   },
-  rules: [ruleSchema]
+  rules: [ruleSchema],
+  note: {
+    type: String,
+    minlength: 1,
+    maxlength: 4000,
+    required: false
+  }
 });
 
 const User = mongoose.model('User', userSchema, 'user');

@@ -13,14 +13,16 @@
  * limitations under the License.
  */
 
-/*
- * --------------------------------------------------------------------------------
- * Description:
- *        TODO:
- * --------------------------------------------------------------------------------
+/** @module schema/phoneSchema */
+/**
+ * @file
+ * @since
+ * @summary
+ * @description
+ * @todo
  */
 
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const phoneSchema = new mongoose.Schema({
   phoneNo: {

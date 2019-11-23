@@ -13,11 +13,13 @@
  * limitations under the License.
  */
 
-/*
- * --------------------------------------------------------------------------------
- * Description:
- *        TODO:
- * --------------------------------------------------------------------------------
+/** @module models/licenseClass */
+/**
+ * @file
+ * @since
+ * @summary
+ * @description
+ * @todo
  */
 
 const mongoose = require('mongoose');
@@ -42,11 +44,24 @@ const licenseClassSchema = new mongoose.Schema({
         required: false,
         unique: true
       },
-      lessonTime: {
+      lessonDuration: {
         type: Number
       }
     }
-  ]
+  ],
+  practiceLesson: [
+    {
+      lessonName: {},
+      lessonDuration: {},
+      lessonCount: {}
+    }
+  ],
+  note: {
+    type: String,
+    minlength: 1,
+    maxlength: 4000,
+    required: false
+  }
 });
 
 const LicenseClass = mongoose.model(

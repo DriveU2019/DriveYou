@@ -1,6 +1,8 @@
-/*
- * Copyright 2019 [dage] @DriveYou
+/**
+ * @copyright 2019
+ * @author [dage] @DriveYou
  *
+ * @license Apache-2.0
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,37 +15,40 @@
  * limitations under the License.
  */
 
-/*
+/**
  * --------------------------------------------------------------------------------
- * Description:
- *        TODO:
+ * @file:
+ * @version:
+ * @summary:
+ * @description:
+ * @todo:
  * --------------------------------------------------------------------------------
  */
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
 //
 import {
   MuiThemeProvider,
   createMuiTheme,
   responsiveFontSizes
-} from '@material-ui/core/styles';
+} from "@material-ui/core/styles";
 //
-import App from './App';
+import App from "./App";
 
 /* Global Theme Generator */
 let theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#1a237e'
+      main: "#1a237e"
     },
     secondary: {
-      main: '#0d47a1'
+      main: "#0d47a1"
     }
   },
   typography: {
-    fontFamily: 'Roboto, Arial, sans-serif, Helvetica'
+    fontFamily: "Roboto, Arial, sans-serif, Helvetica"
   }
 });
 
@@ -55,5 +60,5 @@ ReactDOM.render(
       <App />
     </MuiThemeProvider>
   </BrowserRouter>,
-  document.getElementById('root')
+  document.getElementById("root")
 );

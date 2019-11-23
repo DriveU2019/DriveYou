@@ -13,19 +13,22 @@
  * limitations under the License.
  */
 
-/*
+/**
  * --------------------------------------------------------------------------------
- * Description:
- *        TODO:
+ * @file:
+ * @since:
+ * @summary:
+ * @description:
+ * @todo:
  * --------------------------------------------------------------------------------
  */
 
-import React from 'react';
-import Spinner from '../layout/Spinner';
-import { useGets } from '../../service/useFetch';
+import React from "react";
+import Spinner from "../layout/Spinner";
+import { useGets } from "../../service/useFetch";
 
 const Customer = () => {
-  const { data, loading } = useGets('http://localhost:3900/api/v1/customers');
+  const { data, loading } = useGets("http://localhost:3900/api/v1/customers");
 
   // console.log('CUSTOMER: ', data);
   return (

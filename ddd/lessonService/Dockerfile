@@ -1,5 +1,5 @@
 ##
-# Copyright 2019 [dage] @DriveYou
+# Copyright 2019 [dage349]
 # 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,46 +19,3 @@
 #        TODO:
 # --------------------------------------------------------------------------------
 ##
-
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/api/node_modules
-/app/node_modules
-/ddd/companyService/node_modules
-/ddd/custormerService/node_modules
-/ddd/emloyeeService/node_modules
-/ddd/examService/node_modules
-/ddd/lessonService/node_modules
-/ddd/mainService/node_modules
-# 
-/.pnp
-.pnp.js
-# /ddd
-
-# testing
-/coverage
-
-# production
-/build
-
-
-# misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# own
-/data
-/OLD
-/api/config/*
-/app/src/config/*
-/app/src/service/config.json
-# *.snap
-docker-compose.yml

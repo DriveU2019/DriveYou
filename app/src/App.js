@@ -23,7 +23,7 @@
  * --------------------------------------------------------------------------------
  */
 
-import React, { Fragment } from "react";
+import React from "react";
 import { Route, Switch } from "react-router-dom";
 //
 import Navbar from "./components/layout/Navbar";
@@ -38,31 +38,35 @@ import Dashboard from "./components/dashboard/Dashboard";
 //
 import Login from "./components/auth/Login";
 import NotFound from "./components/layout/NotFound";
+//
+import ValueState from "./context/value/ValueState";
 
 const App = () => {
   return (
-    <Fragment>
-      <Switch>
-        {/* <Route exact path='/login' component={Login} /> */}
-        <Navbar>
-          <Route exact path="/login" component={Login} />
-          {/*  */}
-          <Route exact path="/accounting" component={Accounting} />
-          <Route exact path="/company" component={Company} />
-          <Route exact path="/customer" component={Customer} />
-          <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/drivelesson" component={DriveLesson} />
-          <Route exact path="/employee" component={Employee} />
-          <Route exact path="/payment" component={Payment} />
-          <Route exact path="/theorylesson" component={TheoryLesson} />
-          {/*  */}
-          <Route path="/notFound" component={NotFound} />
-          {/* <Redirect from='/' exact to='/' /> */}
-          {/* <Redirect to='/notFound' /> */}
-          {/*  */}
-        </Navbar>
-      </Switch>
-    </Fragment>
+    <>
+      <ValueState>
+        <Switch>
+          {/* <Route exact path='/login' component={Login} /> */}
+          <Navbar>
+            <Route exact path="/login" component={Login} />
+            {/*  */}
+            <Route exact path="/accounting" component={Accounting} />
+            <Route exact path="/company" component={Company} />
+            <Route exact path="/customer" component={Customer} />
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/drivelesson" component={DriveLesson} />
+            <Route exact path="/employee" component={Employee} />
+            <Route exact path="/payment" component={Payment} />
+            <Route exact path="/theorylesson" component={TheoryLesson} />
+            {/*  */}
+            <Route path="/notFound" component={NotFound} />
+            {/* <Redirect from='/' exact to='/' /> */}
+            {/* <Redirect to='/notFound' /> */}
+            {/*  */}
+          </Navbar>
+        </Switch>
+      </ValueState>
+    </>
   );
 };
 

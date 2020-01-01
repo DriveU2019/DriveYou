@@ -15,23 +15,13 @@
 
 /*
  * --------------------------------------------------------------------------------
- * Description: Type Handler for Context Api
+ * Description:
  *        TODO:
  * --------------------------------------------------------------------------------
  */
 
-export const USER_LOGIN = "USER_LOGIN";
-export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
-export const LOGOUT = "LOGOUT";
-export const LOGIN_FAIL = "LOGIN_FAIL";
-export const AUTH_ERROR = "AUTH_ERROR";
-export const SEARCH = "SEARCH";
-export const GET_VALUES = "GET_VALUES";
-export const ADD_VALUE = "ADD_VALUE";
-export const UPDATE_VALUE = "UPDATE_VALUE";
-export const DELETE_VALUE = "DELETE_VALUE";
-export const CLEAR_VALUES = "CLEAR_VALUES";
-export const VALUE_ERROR = "VALUE_ERROR";
-export const SET_CURRENT = "SET_CURRENT";
-export const CLEAR_CURRENT = "CLEAR_CURRENT";
-export const FILTER_VALUES = "FILTER_VALUES";
+import { createContext } from "react";
+
+const valueContext = createContext();
+
+export default valueContext;

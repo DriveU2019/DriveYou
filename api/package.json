@@ -27,7 +27,7 @@
     "express-async-errors": "^3.1.1",
     "express-validator": "^6.2.0",
     "joi": "^14.3.1",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^5.7.6",
     "winston": "^3.2.1",
     "winston-mongodb": "^5.0.0"
